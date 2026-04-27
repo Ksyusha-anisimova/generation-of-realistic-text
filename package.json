@@ -1,0 +1,33 @@
+{
+  "name": "textgen-ai-lab7n",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "lint": "eslint .",
+    "lint:report": "eslint . -f json -o artifacts/static-analysis/eslint-report.json",
+    "complexity": "python3 -m lizard --version >/dev/null 2>&1 || python3 -m pip install --user lizard; mkdir -p artifacts/static-analysis && python3 -m lizard server public tdd tests features --languages javascript --CCN 10 --length 80 --xml > artifacts/static-analysis/lizard.xml",
+    "test:ui": "playwright test",
+    "test:tdd": "node --test tdd/textGenerator.test.js",
+    "test:bdd": "cucumber-js",
+    "test:bdd:report": "mkdir -p artifacts/reports && cucumber-js --format progress --format json:artifacts/reports/cucumber.json",
+    "test:coverage": "c8 --reporter=text --reporter=html --reporter=lcov --check-coverage --lines 70 --functions 70 --branches 70 --statements 70 node --test tdd/textGenerator.test.js",
+    "ci:test": "mkdir -p artifacts/static-analysis artifacts/reports && npm run lint:report && npm run complexity && npm run test:coverage",
+    "ci:integration": "npm run test:bdd:report"
+  },
+  "dependencies": {
+    "docx": "^9.6.1",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "@eslint/js": "^9.25.1",
+    "@playwright/test": "^1.43.1",
+    "@typescript-eslint/parser": "^8.59.0",
+    "c8": "^10.1.2",
+    "eslint": "^9.25.1",
+    "globals": "^15.15.0",
+    "typescript": "^5.4.5"
+  }
+}

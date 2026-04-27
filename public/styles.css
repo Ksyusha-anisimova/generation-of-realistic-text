@@ -1,0 +1,47 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #1b1f24;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.header {
+  margin-bottom: 16px;
+}
+.card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 16px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+}
+button {
+  margin-top: 8px;
+  padding: 8px 12px;
+}
+.hidden { display: none; }
+.msg { margin-top: 8px; min-height: 20px; }
+.status { margin-bottom: 12px; }
+.block { margin-top: 16px; }
+@media (max-width: 700px) {
+  .grid { grid-template-columns: 1fr; }
+}

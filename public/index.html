@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TextGen AI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>TextGen AI</h1>
+        <p>ПО для генерации реалистичного текста с помощью модулей искусственного интеллекта</p>
+      </header>
+
+      <section class="card" id="auth-section">
+        <div class="grid">
+          <div>
+            <h2>Регистрация</h2>
+            <label>Логин
+              <input id="reg-username" type="text" autocomplete="username" />
+            </label>
+            <label>Пароль
+              <input id="reg-password" type="password" autocomplete="new-password" />
+            </label>
+            <button id="reg-submit">Зарегистрироваться</button>
+            <div class="msg hidden" id="reg-msg"></div>
+          </div>
+          <div>
+            <h2>Вход</h2>
+            <label>Логин
+              <input id="login-username" type="text" autocomplete="username" />
+            </label>
+            <label>Пароль
+              <input id="login-password" type="password" autocomplete="current-password" />
+            </label>
+            <button id="login-submit">Войти</button>
+            <div class="msg hidden" id="login-msg"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card hidden" id="user-section">
+        <h2>Панель пользователя</h2>
+        <div class="status" id="user-status"></div>
+        <button id="logout">Выйти</button>
+
+        <div class="block">
+          <h3>Генерация текста</h3>
+          <label>Запрос
+            <textarea id="text-prompt" rows="4" placeholder="Например: напиши вступление к аналитической заметке"></textarea>
+          </label>
+          <label>AI-модуль
+            <select id="text-module">
+              <option value="creative">creative</option>
+              <option value="formal">formal</option>
+              <option value="dialog">dialog</option>
+            </select>
+          </label>
+          <button id="text-submit">Сгенерировать</button>
+          <div class="msg hidden" id="text-msg"></div>
+        </div>
+      </section>
+
+      <section class="card hidden" id="admin-section">
+        <h2>Панель администратора</h2>
+        <div class="block">
+          <label>Пользователь
+            <select id="admin-user"></select>
+          </label>
+          <label>Роль
+            <select id="admin-role">
+              <option value="user">user</option>
+              <option value="admin">admin</option>
+            </select>
+          </label>
+          <button id="admin-submit">Сменить роль</button>
+          <div class="msg hidden" id="admin-msg"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
