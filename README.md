@@ -1,36 +1,25 @@
-# TextGen AI (Lab7N)
+# LR9N RUN GUIDE
 
-Веб-приложение для генерации реалистичного текста с помощью модулей искусственного интеллекта.
-
-## Функциональность
-
-- Регистрация и вход пользователей
-- Сеансовая авторизация через cookie
-- Генерация текста через AI-модули: `creative`, `formal`, `dialog`
-- Админ-панель для изменения ролей пользователей
-
-## API
-
-- `POST /api/register`
-- `POST /api/login`
-- `POST /api/logout`
-- `GET /api/me`
-- `GET /api/admin/users`
-- `POST /api/admin/role`
-- `POST /api/text`
-
-## Запуск
+## 1. Локальный запуск
 
 ```bash
 npm install
 npm start
 ```
 
-Открыть: `http://localhost:3000`
-
-## Тесты
+## 2. Локальные проверки
 
 ```bash
 npm run ci:test
 npm run ci:integration
 ```
+
+## 3. GitHub Actions
+
+Workflow `CI`:
+- `test` — lint + complexity + unit coverage
+- `integration` — BDD сценарии (Cucumber + Playwright)
+- `report` — сводка и артефакты
+
+Workflow `CodeQL`:
+- `analyze` — статический security-анализ
